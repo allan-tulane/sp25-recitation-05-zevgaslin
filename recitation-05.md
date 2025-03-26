@@ -47,16 +47,20 @@ the results as well.
 Shuffled:
 |      n |   qsort-fixed-pivot |   qsort-random-pivot |
 |--------|---------------------|----------------------|
-|    100 |               0.134 |                0.127 |      
-|    200 |               0.346 |                0.267 |      
-|    500 |               1.211 |                1.324 |      
-|   1000 |               2.438 |                1.868 |      
-|   2000 |               7.293 |                4.469 |      
-|   5000 |              18.472 |               15.043 |      
-|  10000 |              29.523 |               36.330 |
-|  20000 |              70.176 |               53.940 |
-|  50000 |             156.332 |              208.535 | 
-| 100000 |             366.666 |              486.127 |
+|    100 |               0.115 |                0.105 |
+|    200 |               0.211 |                0.300 |
+|    500 |               0.782 |                0.713 |
+|   1000 |               1.653 |                1.526 |
+|   2000 |               3.271 |                4.183 |
+|   5000 |              14.784 |               10.531 |
+|  10000 |              20.004 |               19.404 |
+|  20000 |              50.088 |               43.820 |
+|  50000 |             139.596 |              128.965 |
+| 100000 |             379.270 |              332.804 |
+
+            O(n) = nlogn              O(n) = nlogn
+
+this shows that that the big O time complexity of both of them is the same, and the run time of both functions is very similar, with light differnces due to the randomness of the lists
 
  Non Shuffled:
  |      n |   qsort-fixed-pivot |   qsort-random-pivot |
@@ -71,6 +75,11 @@ Shuffled:
  |  20000 |              49.479 |               45.079 |      
  |  50000 |             143.209 |              144.322 |      
  | 100000 |             320.508 |              303.647 |      
+              O(n) = n^2            O(n) = nlogn
+              
+this shows that that the big O time complexity of fixed is bigger than that of random, and fixed too longer to run than random
+
+
 
 **1c)**
 
@@ -80,16 +89,17 @@ sorting function `sorted`, conducting the tests in 1b above.
 Shuffled:
 |      n |   qsort-fixed-pivot |   qsort-random-pivot |   tim_sort |
 |--------|---------------------|----------------------|------------|
-|    100 |               0.134 |                0.127 |      0.021 |
-|    200 |               0.346 |                0.267 |      0.015 |
-|    500 |               1.211 |                1.324 |      0.048 |
-|   1000 |               2.438 |                1.868 |      0.087 |
-|   2000 |               7.293 |                4.469 |      0.336 |
-|   5000 |              18.472 |               15.043 |      0.640 |
-|  10000 |              29.523 |               36.330 |      1.493 |
-|  20000 |              70.176 |               53.940 |      3.270 |
-|  50000 |             156.332 |              208.535 |     34.574 |
-| 100000 |             366.666 |              486.127 |     32.216 |
+|    100 |               0.115 |                0.105 |      0.008 |
+|    200 |               0.211 |                0.300 |      0.015 |
+|    500 |               0.782 |                0.713 |      0.046 |
+|   1000 |               1.653 |                1.526 |      0.082 |
+|   2000 |               3.271 |                4.183 |      0.238 |
+|   5000 |              14.784 |               10.531 |      0.510 |
+|  10000 |              20.004 |               19.404 |      1.179 |
+|  20000 |              50.088 |               43.820 |      2.495 |
+|  50000 |             139.596 |              128.965 |      8.071 |
+| 100000 |             379.270 |              332.804 |     17.607 |
+                                                        O(n) = nlogn
 
 Non Shuffled:
 |      n |   qsort-fixed-pivot |   qsort-random-pivot |   tim_sort |
@@ -104,3 +114,6 @@ Non Shuffled:
 |  20000 |              49.479 |               45.079 |      0.108 |
 |  50000 |             143.209 |              144.322 |      0.696 |
 | 100000 |             320.508 |              303.647 |      1.049 |
+                                                          O(n) = n
+
+The big O time complexity of tim sort when non shuffled is much faster than when shuffled, which is reflected in the non shuffled program takign much less time to compleate than the shuffled one.
